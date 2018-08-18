@@ -1,9 +1,5 @@
 package fr.collection.model;
 
 public enum Etat {
-Excellent,
-TresBon,
-Bon,
-Moyen,
-Abime;
+	EXCELLENT, TRESBON, BON, MOYEN, ABIME;
 }

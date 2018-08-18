@@ -10,26 +10,26 @@ public class CollectionConsoleDao implements ICollectionDao {
 	List<Item> collections = new ArrayList<Item>();
 
 	@Override
-	public void ajouterItem() {
-
+	public void ajouterItem(Item item) {
+		collections.add(item);
 	}
 
 	@Override
-	public void supprimerIteam() {
-		// TODO Auto-generated method stub
-
+	public void supprimerItem(Item item) {
+		collections.remove(item);
 	}
 
 	@Override
-	public void modifierIte() {
-		// TODO Auto-generated method stub
+	public void modifierItem(Item oldItem, Item newItem) {
+
+		collections.remove(oldItem);
+		collections.add(newItem);
 
 	}
 
 	@Override
 	public List<Item> listerItem() {
-		// TODO Auto-generated method stub
-		return null;
+		return collections;
 	}
 
 	@Override

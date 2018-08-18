@@ -6,11 +6,11 @@ import fr.collection.model.Item;
 
 public interface ICollectionDao {
 
-	public void ajouterItem();
+	public void ajouterItem(Item item);
 
-	public void supprimerIteam();
+	public void supprimerItem(Item item);
 
-	public void modifierIte();
+	public void modifierItem(Item oldItem, Item newItem);
 
 	public List<Item> listerItem();
 

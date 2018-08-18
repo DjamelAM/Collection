@@ -1,30 +1,36 @@
 package fr.collection.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
+// @Table(name = "Jouet Ancien")
 public class JouetAncien extends Item {
+	@Column(name = "Nom")
 	private String nom;
-	private String fabricant;
-	private String categorie;
-	private int anneeSortie;
-	private double prixAchat;
-	private String lieuAchat;
-	private LocalDate dateAchat;
-	private Etat etat;
-	private double cote;
 
-	public JouetAncien(String nom, String fabricant, int annee, double prix, String lieu, LocalDate date, Etat etat,
-			double cote, String categorie) {
+	@Column(name = "Fabricant")
+	private String fabricant;
+
+	@Column(name = "Categorie")
+	private String categorie;
+
+	public JouetAncien(String reference, String nom, String fabricant, int annee, double prix, String lieu,
+			LocalDate date, Etat etat, double cote, String categorie) {
 		super();
 		this.nom = nom;
 		this.fabricant = fabricant;
 		this.categorie = categorie;
-		this.anneeSortie = annee;
-		this.prixAchat = prix;
-		this.lieuAchat = lieu;
-		this.dateAchat = date;
-		this.etat = etat;
-		this.cote = cote;
+		super.setReference(reference);
+		super.setAnneeSortie(annee);
+		super.setPrixAchat(prix);
+		super.setLieuAchat(lieu);
+		super.setDateAchat(date);
+		super.setEtat(etat);
+		super.setCote(cote);
 	}
 
 	public String getNom() {
@@ -52,51 +58,61 @@ public class JouetAncien extends Item {
 	}
 
 	public int getAnneeSortie() {
-		return anneeSortie;
+		return super.getAnneeSortie();
 	}
 
 	public void setAnneeSortie(int anneeSortie) {
-		this.anneeSortie = anneeSortie;
+		super.setAnneeSortie(anneeSortie);
 	}
 
 	public double getPrixAchat() {
-		return prixAchat;
+		return super.getPrixAchat();
 	}
 
 	public void setPrixAchat(double prixAchat) {
-		this.prixAchat = prixAchat;
+		super.setPrixAchat(prixAchat);
 	}
 
 	public String getLieuAchat() {
-		return lieuAchat;
+		return super.getLieuAchat();
 	}
 
 	public void setLieuAchat(String lieuAchat) {
-		this.lieuAchat = lieuAchat;
+		super.setLieuAchat(lieuAchat);
 	}
 
 	public LocalDate getDateAchat() {
-		return dateAchat;
+		return super.getDateAchat();
 	}
 
 	public void setDateAchat(LocalDate dateAchat) {
-		this.dateAchat = dateAchat;
+		super.setDateAchat(dateAchat);
 	}
 
 	public Etat getEtat() {
-		return etat;
+		return super.getEtat();
 	}
 
 	public void setEtat(Etat etat) {
-		this.etat = etat;
+		super.setEtat(etat);
 	}
 
 	public double getCote() {
-		return cote;
+		return super.getCote();
 	}
 
 	public void setCote(double cote) {
-		this.cote = cote;
+		super.setCote(cote);
+	}
+
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+
+	@Override
+	public String toString() {
+		return "Jouet Ancien [reference=" + super.getReference() + ", anneeSortie=" + super.getAnneeSortie()
+				+ ", prixAchat=" + super.getPrixAchat() + ", lieuAchat=" + super.getLieuAchat() + ", dateAchat="
+				+ super.getDateAchat().format(formatter) + ", etat=" + super.getEtat() + ", cote=" + super.getCote()
+				+ ", Nom=" + nom + ", Fabricant=" + fabricant + ", Categorie=" + categorie + "]";
 	}
 
 }
