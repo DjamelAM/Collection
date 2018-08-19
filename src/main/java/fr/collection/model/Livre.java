@@ -1,7 +1,6 @@
 package fr.collection.model;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -109,13 +108,13 @@ public class Livre extends Item {
 		super.setCote(cote);
 	}
 
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+	// DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
 	@Override
 	public String toString() {
 		return "Livre [reference=" + super.getReference() + ", anneeSortie=" + super.getAnneeSortie() + ", prixAchat="
-				+ super.getPrixAchat() + ", lieuAchat=" + super.getLieuAchat() + ", dateAchat="
-				+ super.getDateAchat().format(formatter) + ", etat=" + super.getEtat() + ", cote=" + super.getCote()
-				+ ", titre=" + titre + ", auteur=" + auteur + ", editeur=" + editeur + "]";
+				+ super.getPrixAchat() + ", lieuAchat=" + super.getLieuAchat() + ", dateAchat=" + super.getDateAchat()
+				+ ", etat=" + super.getEtat() + ", cote=" + super.getCote() + ", titre=" + titre + ", auteur=" + auteur
+				+ ", editeur=" + editeur + "]";
 	}
 }
